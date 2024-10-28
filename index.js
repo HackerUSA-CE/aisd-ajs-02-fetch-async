@@ -1,3 +1,5 @@
+// Solution from the last assignment, use as your starter code 
+
 // Base URL for CatFacts API
 const baseUrl = "https://catfact.ninja";
 

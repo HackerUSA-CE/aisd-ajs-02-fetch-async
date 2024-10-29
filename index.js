@@ -38,6 +38,7 @@ const getMultipleFacts = () => {
     });
 };
 
+// Function call 
 getMultipleFacts();
 
 // Fetch cat breeds
@@ -55,4 +56,5 @@ const getCatBreeds = () => {
     });
 };
 
+// Function call 
 getCatBreeds();

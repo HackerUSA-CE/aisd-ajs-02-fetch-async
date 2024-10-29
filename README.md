@@ -71,6 +71,78 @@ In this lab, we’ll use the same **base URL** and **endpoints** as in the previ
 
 ##
 
+### 3. **Refactor the Fetch Single Random Cat Fact**
+
+In this step, you’ll refactor the function that fetches a single random cat fact to use **async/await** syntax instead of **promises**. This will make the code more readable and easier to manage.
+
+- [ ]  **Locate the Previous Code:** In your `index.js` file, find the original `getRandomFact` function written using promises:
+
+   ```javascript
+   // Fetch a single random cat fact
+   const getRandomFact = () => {
+     fetch(`${baseUrl}/fact`)
+       .then((response) => response.json())
+       .then((data) => {
+         console.log("Random Cat Fact:");
+         console.log(data.fact);
+       })
+       .catch((error) => {
+         console.error("Error fetching random cat fact:", error);
+       });
+   };
+  ```
+
+- [ ] **Comment Out** the entire `getRandomFact` function as shown below. 
+
+```javascript
+// Fetch a single random cat fact
+// const getRandomFact = () => {
+//   fetch(`${baseUrl}/fact`)
+//     .then((response) => response.json())
+//     .then((data) => {
+//       console.log("Random Cat Fact:");
+//       console.log(data.fact);
+//     })
+//     .catch((error) => {
+//       console.error("Error fetching random cat fact:", error);
+//     });
+// };
+```
+
+- [ ] Now **Replace** the code with the Refactored Version Using Async/Await:
+
+```javascript
+ const getRandomFact = async () => {
+  try {
+    const response = await fetch(`${baseUrl}/fact`);
+    const data = await response.json();
+    console.log("Random Cat Fact:");
+    console.log(data.fact);
+  } catch (error) {
+    console.error("Error fetching random cat fact:", error);
+  }
+};
+```
+  
+- [ ] **Make sure to keep the function call**: Keep the function call below the commented-out code, as it will still be needed to test the updated function.
+
+   ```javascript
+   // Call the function to test it
+   getRandomFact();
+  ```
+
+**Explanation of Refactoring from Promise to Async/Await:**
+
+- **Async Declaration**: The `async` keyword before `getRandomFact` allows the function to use `await` for asynchronous operations, converting promise-based code into a more readable, synchronous-like structure.
+  
+- **Awaiting the Fetch**: By adding `await` before `fetch(${baseUrl}/fact)`, the function pauses execution until the fetch request completes. This removes the need for `.then()` to handle the fetch response.
+
+- **Simplified JSON Parsing**: Similarly, `await response.json()` directly parses the response to JSON format without an additional `.then()`.
+
+- **Error Handling with Try/Catch**: The `try...catch` block replaces the `.catch()` method, capturing any errors in the fetch or JSON parsing steps, and making error handling more concise and intuitive.
+
+##
+
 
 
 

@@ -141,6 +141,7 @@ In this step, you’ll refactor the function that fetches a single random cat fa
 
 - **Error Handling with Try/Catch**: The `try...catch` block replaces the `.catch()` method, capturing any errors in the fetch or JSON parsing steps, and making error handling more concise and intuitive.
 
+
 ##
 
 

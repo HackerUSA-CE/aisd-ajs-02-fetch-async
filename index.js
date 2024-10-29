@@ -1,4 +1,4 @@
-// Asyc/Await Solution
+// Asyc/Await Solution Code
 
 // Base URL for CatFacts API
 const baseUrl = "https://catfact.ninja";
